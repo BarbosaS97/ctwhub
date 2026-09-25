@@ -789,6 +789,7 @@ p{ margin:0; }
 }
 .feed__track{
   display:flex;
+  align-items: center;
   gap: 20px;
   transition: transform .55s cubic-bezier(0.16,1,0.3,1);
   will-change: transform;
@@ -888,6 +889,16 @@ p{ margin:0; }
 .footer__col a:hover{ color: var(--yellow); }
 .footer__final-cta{ margin-top: 8px; align-self:flex-start; padding: 10px 20px; font-size: 0.85rem; }
 
+.footer__map{
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  filter: grayscale(0.35) contrast(0.9) brightness(0.9);
+  transition: filter .3s ease;
+}
+.footer__map:hover{ filter: grayscale(0) contrast(1) brightness(1); }
+.footer__map iframe{ display:block; }
+
 .footer__bottom{
   border-top: 1px solid var(--border);
   padding: 22px 0;
@@ -977,6 +988,20 @@ p{ margin:0; }
   .feed__carousel{ gap: 10px; padding: 0 12px; }
   .feed__nav{ width: 42px; height: 42px; }
   .feed__nav svg{ width: 18px; height: 18px; }
+
+  /* respiro proporcional pro mobile: as seções usavam o mesmo padding
+     grande do desktop (90-110px), deixando tudo apertado numa tela pequena */
+  .pillars{ padding: 56px 0; }
+  .programs{ padding: 64px 0; }
+  .transformation{ padding: 64px 0; }
+  .coach{ padding: 64px 0; }
+  .community{ padding: 64px 0; }
+  .about{ padding: 64px 0; }
+  .feed{ padding: 64px 0 72px; }
+  .cta-final{ padding: 56px 0; }
+  .section-head{ margin-bottom: 34px; }
+  .hero__title{ letter-spacing: 0.2px; }
+  .hero__subtitle{ line-height: 1.7; }
 }
 
 @media (max-width: 380px){

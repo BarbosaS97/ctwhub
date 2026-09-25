@@ -80,12 +80,19 @@ if (heroSlot && pillarsSlot && flyingCard) {
   };
 
   const measureFlightZone = () => {
+    // Usa a posição absoluta das duas vagas (independe do scroll atual) para
+    // que a largura da zona de voo acompanhe a distância real entre elas —
+    // no mobile, com tudo empilhado, essa distância é bem maior que no
+    // desktop, e uma zona fixa curta fazia o card "pular" em vez de voar.
+    const hRect = heroSlot.getBoundingClientRect();
+    const heroDocY = hRect.top + window.scrollY;
     const pRect = pillarsSlot.getBoundingClientRect();
-    const pillarsDocY = pRect.top + window.scrollY; // posição absoluta, independe do scroll atual
+    const pillarsDocY = pRect.top + window.scrollY;
+
+    zoneStart = heroDocY - window.innerHeight * 0.15;
     zoneEnd = pillarsDocY - window.innerHeight * 0.55;
-    zoneStart = pillarsDocY - window.innerHeight * 1.05;
     if (zoneStart < 0) zoneStart = 0;
-    if (zoneEnd <= zoneStart) zoneEnd = zoneStart + 1;
+    if (zoneEnd <= zoneStart + 80) zoneEnd = zoneStart + 80;
     updateFlight();
   };
 
