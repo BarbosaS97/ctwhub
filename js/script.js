@@ -63,6 +63,10 @@ if (heroSlot && pillarsSlot && flyingCard) {
     if (progress >= 1) { setStatic(pillarsSlot, 'pillars'); return; }
 
     if (flightParent !== 'fixed') {
+      // Sobe pro <body> enquanto voa: assim ele deixa de pertencer à pilha
+      // de camadas da seção de origem e sempre renderiza por cima de tudo,
+      // sem risco de ficar atrás de texto/ícones no meio do trajeto.
+      document.body.appendChild(flyingCard);
       flyingCard.classList.add('is-flying');
       flightParent = 'fixed';
     }
