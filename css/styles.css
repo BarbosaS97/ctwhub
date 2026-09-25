@@ -233,7 +233,13 @@ p{ margin:0; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center center;
   z-index: 0;
+}
+@media (max-width: 760px){
+  /* a foto é bem larga e o atleta fica à direita do quadro; num recorte
+     estreito de celular, o centro puro mostra só a perna dele */
+  .hero__video{ object-position: 74% 20%; }
 }
 .hero__overlay{
   position: absolute; inset: 0;
@@ -366,7 +372,8 @@ p{ margin:0; }
 .flying-card__corner--br{ bottom:-12px; right:-12px; border-left:none; border-top:none; border-radius: 0 0 8px 0; }
 
 @media (max-width: 560px){
-  #heroSlot, #pillarsSlot{ display: none; }
+  .showcase-slot{ width: min(220px, 58vw); min-width: 190px; }
+  #pillarsSlot{ width: min(250px, 64vw); min-width: 210px; }
 }
 .hero-logo{
   height: clamp(64px, 8vw, 108px);

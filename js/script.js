@@ -56,11 +56,6 @@ if (heroSlot && pillarsSlot && flyingCard) {
   };
 
   const updateFlight = () => {
-    if (window.innerWidth <= 560) {
-      setStatic(heroSlot, 'hero');
-      return;
-    }
-
     let progress = (window.scrollY - zoneStart) / (zoneEnd - zoneStart);
     progress = Math.min(1, Math.max(0, progress));
 
