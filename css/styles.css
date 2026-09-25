@@ -966,7 +966,12 @@ p{ margin:0; }
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.55);
-    z-index: 1001;
+    /* precisa ficar ABAIXO do .header (z-index:1000): como o overlay é
+       filho direto do body (fora do header), um z-index maior que 1000
+       cobria o próprio painel do menu, que está aninhado dentro do header
+       e por isso empilha nesse contexto local — os cliques nos links
+       caíam no overlay em vez de nos links. */
+    z-index: 900;
     opacity: 0;
     visibility: hidden;
     transition: opacity .35s ease, visibility 0s linear .35s;
