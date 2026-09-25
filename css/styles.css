@@ -961,6 +961,7 @@ p{ margin:0; }
 
   .pillars__row{ flex-direction: column; }
   .pillars__icons{ width: 100%; }
+  #pillarsSlot{ order: -1; margin-bottom: 8px; }
   .programs__grid{ grid-template-columns: repeat(2, 1fr); }
   .coach__inner{ grid-template-columns: 1fr; }
   .coach__showcase{ max-width: 420px; margin: 0 auto; }
